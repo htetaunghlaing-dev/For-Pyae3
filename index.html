@@ -12,22 +12,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* Hirono Signature Aesthetic Colors: Deep Muted Earthy Tones */
-            background-color: #2c2523; 
+            /* Changed background color to pure white */
+            background-color: #ffffff; 
             font-family: 'Georgia', serif;
             overflow: hidden;
             text-align: center;
         }
         .container {
-            background: #f4eae1; /* Soft parchment vintage background */
+            background: #fcf8f5; /* Lightened box background for soft contrast against white */
             padding: 35px 25px;
             border-radius: 16px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15); /* Softened shadow for white theme */
             max-width: 400px;
             width: 85%;
             position: relative;
             z-index: 10;
-            border: 2px solid #8c7365;
+            border: 2px solid #bfa393; /* Lighter borders to match the clean theme */
         }
         h1 {
             color: #4a3b32;
@@ -57,19 +57,19 @@
             padding: 12px 28px;
             font-size: 18px;
             border: none;
-            border-radius: 6px; /* Blocky retro style fitting Hirono theme */
+            border-radius: 6px; 
             cursor: pointer;
             font-weight: bold;
             transition: all 0.2s ease-in-out;
         }
         #yesBtn {
-            background-color: #8c2727; /* Deep vintage red */
-            color: #f4eae1;
+            background-color: #8c2727; 
+            color: #ffffff;
             z-index: 9999; 
         }
         #noBtn {
-            background-color: #5c6b66; /* Muted slate teal/gray */
-            color: #f4eae1;
+            background-color: #7a8a84; /* Slightly adjusted gray-teal for clear visibility */
+            color: #ffffff;
         }
         .success-message {
             display: none;
@@ -127,11 +127,9 @@
             "Look behind you... just click YES! 💖"
         ];
 
-        // This ONLY runs when she physically clicks/taps the "No" button
         function processNoClick() {
             clickCount++;
             
-            // Yes button grows aggressively on click
             yesSize += 30; 
             noSize = Math.max(4, noSize - 3); 
 
@@ -141,17 +139,14 @@
             noBtn.style.fontSize = noSize + 'px';
             noBtn.style.padding = (noSize / 1.5) + 'px ' + (noSize * 1.5) + 'px';
 
-            // Change question dialog progressively
             if (clickCount <= phrases.length) {
                 questionText.innerHTML = phrases[clickCount - 1];
             }
 
-            // Move the No button layout structure slightly to add interactive movement
             const x = (Math.random() - 0.5) * 60;
             const y = (Math.random() - 0.5) * 60;
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
-            // Trap mechanism: Fills screen entirely on 5th click attempt
             if (clickCount >= 5) {
                 yesBtn.style.position = 'fixed';
                 yesBtn.style.top = '0';
@@ -190,4 +185,3 @@
         }
     </script>
 </body>
-</html>
