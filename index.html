@@ -34,8 +34,10 @@
             transition: all 0.3s ease;
         }
         .gif {
-            width: 150px;
+            width: 160px;
+            height: auto;
             margin-bottom: 20px;
+            border-radius: 10px;
         }
         .buttons {
             display: flex;
@@ -58,7 +60,7 @@
         #yesBtn {
             background-color: #ff4d6d;
             color: white;
-            z-index: 999; /* Keeps Yes button on top of everything */
+            z-index: 999;
         }
         #noBtn {
             background-color: #7b2cbf;
@@ -86,8 +88,8 @@
 <body>
 
     <div class="container" id="mainContainer">
-        <!-- Cute question gif -->
-        <img class="gif" src="https://giphy.com" alt="Cute Bear">
+        <!-- New stable cute cat/bear aesthetic image -->
+        <img class="gif" src="https://unsplash.com" alt="Cute Love">
         <h1 id="question">Do you love me, Pyae? 🥺👉👈</h1>
         <div class="buttons" id="btnGroup">
             <button id="yesBtn" onclick="sayYes()">Yes!</button>
@@ -96,8 +98,8 @@
     </div>
 
     <div class="container success-message" id="successContainer">
-        <!-- Cute happy gif -->
-        <img class="gif" src="https://giphy.com" alt="Happy Bear">
+        <!-- New stable celebratory love image -->
+        <img class="gif" src="https://unsplash.com" alt="Hearts">
         <h1>I love u tooo pyae! ❤️🥰✨</h1>
     </div>
 
@@ -109,8 +111,8 @@
         const successContainer = document.getElementById('successContainer');
 
         let clickCount = 0;
-        let yesSize = 18; // starting font size in px
-        let noSize = 18;  // starting font size in px
+        let yesSize = 18; 
+        let noSize = 18;  
 
         const phrases = [
             "Are you sure? 🥺",
@@ -123,9 +125,8 @@
         function makeYesBigger() {
             clickCount++;
             
-            // Make Yes bigger and No smaller
-            yesSize += 25; // Grows aggressively 
-            noSize = Math.max(5, noSize - 3); // Shrinks 
+            yesSize += 25; 
+            noSize = Math.max(5, noSize - 3); 
 
             yesBtn.style.fontSize = yesSize + 'px';
             yesBtn.style.padding = (yesSize / 1.5) + 'px ' + (yesSize * 1.5) + 'px';
@@ -133,17 +134,14 @@
             noBtn.style.fontSize = noSize + 'px';
             noBtn.style.padding = (noSize / 1.5) + 'px ' + (noSize * 1.5) + 'px';
 
-            // Change question text to tease her
             if (clickCount <= phrases.length) {
                 questionText.innerHTML = phrases[clickCount - 1];
             }
 
-            // Move the No button slightly so it acts crazy
             const x = (Math.random() - 0.5) * 40;
             const y = (Math.random() - 0.5) * 40;
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
-            // Fully cover the No button after a few tries
             if (clickCount >= 5) {
                 yesBtn.style.position = 'fixed';
                 yesBtn.style.top = '0';
