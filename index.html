@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do you love me, Pyae?😕 </title>
+    <title>Do you love me, Pyae?😕</title>
     <style>
         body {
             margin: 0;
@@ -12,22 +12,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* Changed background color to pure white */
             background-color: #ffffff; 
             font-family: 'Georgia', serif;
             overflow: hidden;
             text-align: center;
         }
         .container {
-            background: #fcf8f5; /* Lightened box background for soft contrast against white */
+            background: #fcf8f5; 
             padding: 35px 25px;
             border-radius: 16px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15); /* Softened shadow for white theme */
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15); 
             max-width: 400px;
             width: 85%;
             position: relative;
             z-index: 10;
-            border: 2px solid #bfa393; /* Lighter borders to match the clean theme */
+            border: 2px solid #bfa393; 
         }
         h1 {
             color: #4a3b32;
@@ -36,7 +35,8 @@
             font-weight: bold;
             line-height: 1.4;
         }
-        .theme-image {
+        /* Style updated to cleanly support both images or videos */
+        .theme-media {
             width: 180px;
             height: 180px;
             object-fit: cover;
@@ -68,7 +68,7 @@
             z-index: 9999; 
         }
         #noBtn {
-            background-color: #7a8a84; /* Slightly adjusted gray-teal for clear visibility */
+            background-color: #7a8a84; 
             color: #ffffff;
         }
         .success-message {
@@ -93,8 +93,10 @@
 <body>
 
     <div class="container" id="mainContainer">
-        <!-- Aesthetic art illustration style representing Hirono profile -->
-        <img class="theme-image" src="video1.mp4" alt="Hirono Theme Art">
+        <!-- FIXED: Replaced img with video tags for video1.mp4 -->
+        <video class="theme-media" autoplay loop muted playsinline>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
         <h1 id="question">Do you love me, Pyae?😕👉👈</h1>
         <div class="buttons">
             <button id="yesBtn" onclick="sayYes()">Yes!</button>
@@ -103,9 +105,11 @@
     </div>
 
     <div class="container success-message" id="successContainer">
-        <!-- Heartwarming celebratory visual placeholder -->
-        <img class="theme-image" src="video2.mp4" alt="Love Confirmed">
-        <h1> Yayyy!  ❤️✨</h1>
+        <!-- FIXED: Replaced img with video tags for video2.mp4 -->
+        <video class="theme-media" autoplay loop muted playsinline>
+            <source src="video2.mp4" type="video/mp4">
+        </video>
+        <h1>Yayyy! ❤️✨</h1>
     </div>
 
     <script>
@@ -164,6 +168,8 @@
         }
 
         function sayYes() {
+            // FIXED: Resets the button styles if they clicked the full-screen version
+            yesBtn.style.display = 'none'; 
             mainContainer.style.display = 'none';
             successContainer.style.display = 'block';
             createHearts();
@@ -185,3 +191,4 @@
         }
     </script>
 </body>
+</html>
